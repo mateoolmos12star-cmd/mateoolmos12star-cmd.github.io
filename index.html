@@ -1,113 +1,422 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Harrison Olmos | Risk & Data Analyst</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harrison Olmos | Risk & Operations Analyst</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
-    margin: 0;
-}
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px;
-}
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 5px;
-}
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
 
-h2 {
-    border-left: 4px solid #3b82f6;
-    padding-left: 10px;
-    margin-top: 30px;
-}
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
 
-p {
-    line-height: 1.6;
-}
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
 
-.card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 15px;
-}
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
 
-ul {
-    padding-left: 20px;
-}
+    .btn-whatsapp {
+      background: #22c55e;
+      color: white;
+    }
 
-.tag {
-    display: inline-block;
-    background: #3b82f6;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 6px;
-    font-size: 14px;
-}
-</style>
+    .btn-whatsapp:hover {
+      background: #16a34a;
+    }
 
+    h1 {
+      font-size: 42px;
+      margin: 0 0 8px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      font-size: 16px;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .contact a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      border-left: 5px solid #3b82f6;
+      padding-left: 12px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      font-size: 30px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: #3b82f6;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .job {
+      margin-bottom: 28px;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #f8fafc;
+    }
+
+    .job-role {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .project {
+      margin-bottom: 24px;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #f8fafc;
+    }
+
+    .project-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #dbeafe;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      margin-top: 36px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <div class="topbar">
+      <button class="btn btn-primary" onclick="setLanguage('es')">Español</button>
+      <button class="btn btn-primary" onclick="setLanguage('en')">English</button>
+      <a
+        class="btn btn-whatsapp"
+        href="https://wa.me/573214618872"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WhatsApp
+      </a>
+    </div>
 
-<div class="container">
+    <h1 id="name">Harrison Mateo Olmos Forero</h1>
+    <div class="subtitle" id="headline">Risk & Operations Analyst | Data & IT</div>
+    <div class="contact">
+      <span id="location">Colombia</span> |
+      <a href="tel:+573214618872">+57 3214618872</a> |
+      <a href="mailto:mateoolmos12star@gmail.com">mateoolmos12star@gmail.com</a>
+    </div>
 
-<h1>Harrison Mateo Olmos Forero</h1>
-<p><b>Risk & Operations Analyst | Data & IT</b></p>
-<p>Colombia | +57 3214618872 | mateoolmos12star@gmail.com</p>
+    <h2 id="profile-title">Perfil</h2>
+    <div class="card">
+      <p id="profile-text">
+        Profesional con experiencia en análisis de datos, operaciones de call center y soporte técnico.
+        Enfocado en detección de anomalías, monitoreo de KPIs y optimización de procesos. Interesado en
+        fintech, prevención de fraude y análisis de riesgo.
+      </p>
+    </div>
 
-<h2>Perfil</h2>
-<div class="card">
-<p>
-Profesional con experiencia en análisis de datos, operaciones de call center y soporte técnico.
-Enfocado en detección de anomalías, monitoreo de KPIs y optimización de procesos.
-Interesado en fintech, prevención de fraude y análisis de riesgo.
-</p>
-</div>
+    <h2 id="skills-title">Habilidades</h2>
+    <div class="card">
+      <div class="tags">
+        <span class="tag" data-es="Análisis de Datos" data-en="Data Analysis">Análisis de Datos</span>
+        <span class="tag" data-es="Excel Avanzado" data-en="Advanced Excel">Excel Avanzado</span>
+        <span class="tag" data-es="SQL" data-en="SQL">SQL</span>
+        <span class="tag" data-es="Python" data-en="Python">Python</span>
+        <span class="tag" data-es="Monitoreo de KPIs" data-en="KPI Monitoring">Monitoreo de KPIs</span>
+        <span class="tag" data-es="Optimización de Procesos" data-en="Process Optimization">Optimización de Procesos</span>
+        <span class="tag" data-es="Soporte IT" data-en="IT Support">Soporte IT</span>
+        <span class="tag" data-es="Redes" data-en="Networks">Redes</span>
+        <span class="tag" data-es="Automatización" data-en="Automation">Automatización</span>
+      </div>
+    </div>
 
-<h2>Habilidades</h2>
-<div class="card">
-<span class="tag">Data Analysis</span>
-<span class="tag">Excel Avanzado</span>
-<span class="tag">SQL</span>
-<span class="tag">Python</span>
-<span class="tag">KPI Monitoring</span>
-<span class="tag">Process Optimization</span>
-<span class="tag">IT Support</span>
-<span class="tag">Network</span>
-</div>
+    <h2 id="experience-title">Experiencia</h2>
+    <div class="card">
+      <div class="job">
+        <div class="job-title">Callpeople S.A.S (2023 – 2026)</div>
+        <div class="job-role" id="job1-role">Ingeniero Principal de Operaciones y Sistemas</div>
+        <ul>
+          <li id="job1-li1">Análisis de datos operativos y detección de patrones para mejorar la operación.</li>
+          <li id="job1-li2">Automatización de reportes y seguimiento de KPIs con herramientas tecnológicas.</li>
+          <li id="job1-li3">Optimización de procesos de operación y apoyo a la toma de decisiones.</li>
+          <li id="job1-li4">Monitoreo de sistemas, redes internas y plataformas operativas.</li>
+        </ul>
+      </div>
 
-<h2>Experiencia</h2>
-<div class="card">
-<p><b>Callpeople S.A.S (2023 – 2026)</b><br>
-Ingeniero Principal de Operaciones y Sistemas</p>
+      <div class="job">
+        <div class="job-title">Teleperformance (2022 – 2023)</div>
+        <div class="job-role" id="job2-role">Soporte de Redes y Sistemas</div>
+        <ul>
+          <li id="job2-li1">Resolución de incidencias técnicas relacionadas con redes, sistemas y conectividad.</li>
+          <li id="job2-li2">Diagnóstico de problemas en equipos, aplicaciones y servicios de red.</li>
+        </ul>
+      </div>
 
-<ul>
-<li>Análisis de datos operativos y detección de patrones</li>
-<li>Automatización de reportes y KPIs</li>
-<li>Optimización de procesos de operación</li>
-<li>Monitoreo de sistemas y redes</li>
-</ul>
+      <div class="job">
+        <div class="job-title">Serviflocar (2021 – 2022)</div>
+        <div class="job-role" id="job3-role">Técnico en Telecomunicaciones</div>
+        <ul>
+          <li id="job3-li1">Instalación y configuración de equipos Huawei y Nokia.</li>
+          <li id="job3-li2">Implementación de enlaces y cumplimiento de estándares técnicos de instalación.</li>
+        </ul>
+      </div>
+    </div>
 
-<p><b>Teleperformance (2022 – 2023)</b><br>
-Soporte de Redes y Sistemas</p>
+    <h2 id="projects-title">Proyectos</h2>
+    <div class="card">
+      <div class="project">
+        <div class="project-title" id="project1-title">Automatización de reportes operativos</div>
+        <div class="project-desc" id="project1-desc">
+          Desarrollo de archivos y flujos de trabajo en Excel y Python para automatizar reportes de operación,
+          seguimiento de resultados y control de indicadores clave.
+        </div>
+      </div>
 
-<ul>
-<li>Resolución de incidencias técnicas</li>
-<li>Diagnóstico de problemas en sistemas</li>
-</ul>
+      <div class="project">
+        <div class="project-title" id="project2-title">Optimización de monitoreo y soporte técnico</div>
+        <div class="project-desc" id="project2-desc">
+          Implementación de soluciones para monitoreo de equipos, control de redes internas y soporte a plataformas
+          utilizadas por equipos de call center.
+        </div>
+      </div>
 
-</div>
+      <div class="project">
+        <div class="project-title" id="project3-title">Análisis de datos para toma de decisiones</div>
+        <div class="project-desc" id="project3-desc">
+          Construcción de herramientas para analizar productividad, desempeño y métricas operativas, facilitando la
+          trazabilidad de la información y la mejora continua.
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="footer" id="footer-text">
+      Sitio profesional de Harrison Olmos
+    </div>
+  </div>
 
+  <script>
+    const content = {
+      es: {
+        headline: "Risk & Operations Analyst | Data & IT",
+        location: "Colombia",
+        profileTitle: "Perfil",
+        profileText:
+          "Profesional con experiencia en análisis de datos, operaciones de call center y soporte técnico. Enfocado en detección de anomalías, monitoreo de KPIs y optimización de procesos. Interesado en fintech, prevención de fraude y análisis de riesgo.",
+        skillsTitle: "Habilidades",
+        experienceTitle: "Experiencia",
+        job1Role: "Ingeniero Principal de Operaciones y Sistemas",
+        job1Li1: "Análisis de datos operativos y detección de patrones para mejorar la operación.",
+        job1Li2: "Automatización de reportes y seguimiento de KPIs con herramientas tecnológicas.",
+        job1Li3: "Optimización de procesos de operación y apoyo a la toma de decisiones.",
+        job1Li4: "Monitoreo de sistemas, redes internas y plataformas operativas.",
+        job2Role: "Soporte de Redes y Sistemas",
+        job2Li1: "Resolución de incidencias técnicas relacionadas con redes, sistemas y conectividad.",
+        job2Li2: "Diagnóstico de problemas en equipos, aplicaciones y servicios de red.",
+        job3Role: "Técnico en Telecomunicaciones",
+        job3Li1: "Instalación y configuración de equipos Huawei y Nokia.",
+        job3Li2: "Implementación de enlaces y cumplimiento de estándares técnicos de instalación.",
+        projectsTitle: "Proyectos",
+        project1Title: "Automatización de reportes operativos",
+        project1Desc:
+          "Desarrollo de archivos y flujos de trabajo en Excel y Python para automatizar reportes de operación, seguimiento de resultados y control de indicadores clave.",
+        project2Title: "Optimización de monitoreo y soporte técnico",
+        project2Desc:
+          "Implementación de soluciones para monitoreo de equipos, control de redes internas y soporte a plataformas utilizadas por equipos de call center.",
+        project3Title: "Análisis de datos para toma de decisiones",
+        project3Desc:
+          "Construcción de herramientas para analizar productividad, desempeño y métricas operativas, facilitando la trazabilidad de la información y la mejora continua.",
+        footer: "Sitio profesional de Harrison Olmos"
+      },
+      en: {
+        headline: "Risk & Operations Analyst | Data & IT",
+        location: "Colombia",
+        profileTitle: "Profile",
+        profileText:
+          "Professional with experience in data analysis, call center operations, and technical support. Focused on anomaly detection, KPI monitoring, and process optimization. Interested in fintech, fraud prevention, and risk analysis.",
+        skillsTitle: "Skills",
+        experienceTitle: "Experience",
+        job1Role: "Lead Operations & Systems Engineer",
+        job1Li1: "Operational data analysis and pattern detection to improve performance.",
+        job1Li2: "Automation of reports and KPI tracking using technology-driven tools.",
+        job1Li3: "Process optimization and support for operational decision-making.",
+        job1Li4: "Monitoring of systems, internal networks, and operational platforms.",
+        job2Role: "Network & Systems Support",
+        job2Li1: "Resolution of technical incidents related to networks, systems, and connectivity.",
+        job2Li2: "Diagnosis of issues involving devices, applications, and network services.",
+        job3Role: "Telecommunications Technician",
+        job3Li1: "Installation and configuration of Huawei and Nokia equipment.",
+        job3Li2: "Link deployment and compliance with technical installation standards.",
+        projectsTitle: "Projects",
+        project1Title: "Operational reporting automation",
+        project1Desc:
+          "Development of Excel and Python workflows to automate operational reports, performance tracking, and key indicator control.",
+        project2Title: "Monitoring and technical support optimization",
+        project2Desc:
+          "Implementation of solutions for device monitoring, internal network control, and support for platforms used by call center teams.",
+        project3Title: "Data analysis for decision-making",
+        project3Desc:
+          "Built tools to analyze productivity, performance, and operational metrics, improving traceability and continuous improvement.",
+        footer: "Professional website of Harrison Olmos"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById("headline").textContent = content[lang].headline;
+      document.getElementById("location").textContent = content[lang].location;
+      document.getElementById("profile-title").textContent = content[lang].profileTitle;
+      document.getElementById("profile-text").textContent = content[lang].profileText;
+      document.getElementById("skills-title").textContent = content[lang].skillsTitle;
+      document.getElementById("experience-title").textContent = content[lang].experienceTitle;
+      document.getElementById("job1-role").textContent = content[lang].job1Role;
+      document.getElementById("job1-li1").textContent = content[lang].job1Li1;
+      document.getElementById("job1-li2").textContent = content[lang].job1Li2;
+      document.getElementById("job1-li3").textContent = content[lang].job1Li3;
+      document.getElementById("job1-li4").textContent = content[lang].job1Li4;
+      document.getElementById("job2-role").textContent = content[lang].job2Role;
+      document.getElementById("job2-li1").textContent = content[lang].job2Li1;
+      document.getElementById("job2-li2").textContent = content[lang].job2Li2;
+      document.getElementById("job3-role").textContent = content[lang].job3Role;
+      document.getElementById("job3-li1").textContent = content[lang].job3Li1;
+      document.getElementById("job3-li2").textContent = content[lang].job3Li2;
+      document.getElementById("projects-title").textContent = content[lang].projectsTitle;
+      document.getElementById("project1-title").textContent = content[lang].project1Title;
+      document.getElementById("project1-desc").textContent = content[lang].project1Desc;
+      document.getElementById("project2-title").textContent = content[lang].project2Title;
+      document.getElementById("project2-desc").textContent = content[lang].project2Desc;
+      document.getElementById("project3-title").textContent = content[lang].project3Title;
+      document.getElementById("project3-desc").textContent = content[lang].project3Desc;
+      document.getElementById("footer-text").textContent = content[lang].footer;
+
+      document.querySelectorAll(".tag").forEach(tag => {
+        tag.textContent = tag.getAttribute(`data-${lang}`);
+      });
+    }
+  </script>
 </body>
 </html>
