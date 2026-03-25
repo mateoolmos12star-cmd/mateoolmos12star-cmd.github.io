@@ -3,545 +3,636 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harrison Olmos | Risk & Operations Analyst</title>
+  <title>Harrison Olmos | Portfolio</title>
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --bg: #0b1220;
+      --panel: rgba(16, 24, 40, 0.72);
+      --panel-2: rgba(30, 41, 59, 0.88);
+      --text: #e5eefc;
+      --muted: #9fb1d1;
+      --line: rgba(148, 163, 184, 0.18);
+      --accent: #4f8cff;
+      --accent-2: #22c55e;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --max: 1120px;
     }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
       margin: 0;
-      padding: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(79, 140, 255, 0.16), transparent 28%),
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.10), transparent 22%),
+        linear-gradient(180deg, #07101d 0%, #0b1220 100%);
+      color: var(--text);
     }
+
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 40px 20px 60px;
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
     }
 
-    .topbar {
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(7, 16, 29, 0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-inner {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
       gap: 10px;
-      margin-bottom: 20px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
-    .btn {
-      display: inline-block;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
+    .nav-links a,
+    .pill-btn {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: .2s ease;
+      font-size: 0.95rem;
+      background: transparent;
       cursor: pointer;
-      transition: 0.2s ease;
     }
 
-    .btn-primary {
-      background: #2563eb;
-      color: white;
+    .nav-links a:hover,
+    .pill-btn:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
     }
 
-    .btn-primary:hover {
-      background: #1d4ed8;
+    .hero {
+      padding: 72px 0 38px;
     }
 
-    .btn-whatsapp {
-      background: #22c55e;
-      color: white;
-    }
-
-    .btn-whatsapp:hover {
-      background: #16a34a;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin: 0 0 8px;
-      line-height: 1.1;
-    }
-
-    .subtitle {
-      font-size: 20px;
-      font-weight: 700;
-      color: #cbd5e1;
-      margin-bottom: 10px;
-    }
-
-    .contact {
-      font-size: 16px;
-      color: #cbd5e1;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-
-    .contact a {
-      color: #93c5fd;
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    h2 {
-      border-left: 5px solid #3b82f6;
-      padding-left: 12px;
-      margin-top: 32px;
-      margin-bottom: 16px;
-      font-size: 30px;
-    }
-
-    h3 {
-      font-size: 20px;
-      margin-top: 0;
-      margin-bottom: 14px;
-      color: #f8fafc;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      align-items: stretch;
     }
 
     .card {
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 22px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
     }
 
-    .subcard {
-      background: #0f172a;
-      border: 1px solid rgba(148, 163, 184, 0.15);
+    .hero-main {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      color: #c6d6f3;
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.4rem, 5vw, 4.3rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 .accent { color: #8eb7ff; }
+
+    .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
       border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #2b67f6);
+      border-color: transparent;
+    }
+    .btn-secondary {
+      background: linear-gradient(135deg, rgba(34,197,94,0.16), rgba(34,197,94,0.10));
+      border-color: rgba(34,197,94,0.25);
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 20px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+    }
+
+    .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #cfe0ff;
+    }
+
+    .mini-card p,
+    .mini-card li {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
       padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    section {
+      padding: 18px 0 26px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: end;
       margin-bottom: 18px;
     }
 
-    .subcard:last-child {
-      margin-bottom: 0;
-    }
-
-    p {
-      line-height: 1.8;
-      font-size: 17px;
+    .section-head h2 {
       margin: 0;
+      font-size: clamp(1.55rem, 3vw, 2.3rem);
+      letter-spacing: -0.03em;
     }
 
-    .tags {
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .experience-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .skill-card,
+    .project-card,
+    .timeline-card,
+    .contact-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card h3,
+    .project-card h3,
+    .timeline-card h3,
+    .contact-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.06rem;
+    }
+
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #3b82f6;
-      color: white;
-      padding: 8px 14px;
+    .chip {
+      padding: 10px 14px;
       border-radius: 999px;
-      font-size: 14px;
+      background: rgba(79,140,255,0.12);
+      border: 1px solid rgba(79,140,255,0.2);
+      color: #d8e6ff;
+      font-size: 0.93rem;
       font-weight: 600;
     }
 
-    .tag-icon {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-      flex-shrink: 0;
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
     }
 
-    .tag-text {
-      display: inline-block;
+    .project-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0 0 14px;
     }
 
-    .job {
-      margin-bottom: 28px;
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
     }
 
-    .job:last-child {
-      margin-bottom: 0;
+    .project-link {
+      color: #9fc1ff;
+      font-weight: 700;
     }
 
-    .job-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      color: #f8fafc;
+    .experience-grid {
+      grid-template-columns: 1fr;
     }
 
-    .job-role {
-      font-size: 18px;
-      color: #cbd5e1;
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
       margin-bottom: 12px;
-      font-weight: 600;
+      flex-wrap: wrap;
     }
 
-    ul {
+    .timeline-role {
+      color: #d6e4ff;
+      font-weight: 700;
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .timeline-card ul {
       margin: 0;
-      padding-left: 22px;
-    }
-
-    li {
-      margin-bottom: 8px;
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    .project {
-      margin-bottom: 24px;
-    }
-
-    .project:last-child {
-      margin-bottom: 0;
-    }
-
-    .project-title {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 10px;
-      color: #f8fafc;
-    }
-
-    .project-desc {
-      font-size: 16px;
+      padding-left: 20px;
+      color: var(--muted);
       line-height: 1.8;
-      color: #dbeafe;
-      margin-bottom: 10px;
     }
 
-    .footer {
-      margin-top: 36px;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 24px 0 44px;
       text-align: center;
-      color: #94a3b8;
-      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .contact-grid,
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 700px) {
-      h1 {
-        font-size: 30px;
-      }
-
-      .subtitle {
-        font-size: 17px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      .card {
-        padding: 18px;
-      }
-
-      .subcard {
-        padding: 14px;
-      }
+      .container { width: min(calc(100% - 22px), var(--max)); }
+      .hero { padding-top: 42px; }
+      .hero-main, .hero-side, .skill-card, .project-card, .timeline-card, .contact-card { padding: 20px; }
+      .nav-inner { align-items: start; flex-direction: column; }
+      .nav-links { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="topbar">
-  <button class="btn btn-primary" onclick="setLanguage('es')">Español</button>
-  <button class="btn btn-primary" onclick="setLanguage('en')">English</button>
-
-  <a
-    class="btn btn-primary"
-    href="Harrison_Olmos_CV_OnePage.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    id="cv-button"
-  >
-    Descargar CV
-  </a>
-
-  <a
-    class="btn btn-whatsapp"
-    href="https://wa.me/573214618872?text=Hola%20Harrison,%20vi%20tu%20perfil%20y%20quisiera%20hablar%20contigo."
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    WhatsApp
-  </a>
-</div>
-
-    <h1>Harrison Mateo Olmos Forero</h1>
-    <div class="subtitle" id="headline">Risk & Operations Analyst | Data & IT</div>
-    <div class="contact">
-      <span id="location">Colombia</span> |
-      <a href="tel:+573214618872">+57 3214618872</a> |
-      <a href="mailto:mateoolmos12star@gmail.com">mateoolmos12star@gmail.com</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Harrison Olmos</div>
+      <div class="nav-links">
+        <a href="#about">Perfil</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#contact">Contacto</a>
+      </div>
     </div>
+  </nav>
 
-    <h2 id="profile-title">Perfil</h2>
-    <div class="card">
-      <p id="profile-text">
-        Profesional con experiencia en operaciones tecnológicas, análisis de datos y optimización de procesos dentro de entornos de call center y soporte técnico.
-        Cuento con habilidades en automatización de reportes, análisis de indicadores operativos y gestión de herramientas tecnológicas para mejorar la eficiencia de las operaciones.
-        Me caracterizo por mi capacidad para resolver problemas, aprender rápidamente y liderar iniciativas de mejora continua, aportando soluciones basadas en datos que contribuyen al crecimiento y la estabilidad de la organización.
-      </p>
-    </div>
-
-    <h2 id="skills-title">Habilidades</h2>
-    <div class="card">
-      <div class="subcard">
-        <h3 id="programming-title">Lenguajes de programación</h3>
-        <div class="tags">
-          <span class="tag" data-es="Python" data-en="Python">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-            <span class="tag-text">Python</span>
-          </span>
-
-          <span class="tag" data-es="JavaScript" data-en="JavaScript">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-            <span class="tag-text">JavaScript</span>
-          </span>
-
-          <span class="tag" data-es="HTML" data-en="HTML">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
-            <span class="tag-text">HTML</span>
-          </span>
-
-          <span class="tag" data-es="CSS" data-en="CSS">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
-            <span class="tag-text">CSS</span>
-          </span>
-
-          <span class="tag" data-es="Java" data-en="Java">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-            <span class="tag-text">Java</span>
-          </span>
-
-          <span class="tag" data-es="SQL" data-en="SQL">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" />
-            <span class="tag-text">SQL</span>
-          </span>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="card hero-main">
+        <div class="eyebrow">Disponible para oportunidades en soporte, automatización y tecnología</div>
+        <h1>Hola, soy <span class="accent">Harrison</span>.<br>Construyo soluciones prácticas para operaciones y tecnología.</h1>
+        <p class="subtitle">
+          Profesional con experiencia en soporte técnico, automatización de procesos, análisis de datos y mejora operativa.
+          Me enfoco en resolver problemas reales, optimizar flujos de trabajo y apoyar equipos de alto rendimiento.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Ver proyectos</a>
+          <a class="btn" href="Harrison_Olmos_CV_OnePage.pdf" target="_blank" rel="noopener noreferrer">Descargar CV</a>
+          <a class="btn btn-secondary" href="https://wa.me/573214618872?text=Hola%20Harrison,%20vi%20tu%20portafolio%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
       </div>
 
-      <div class="subcard">
-        <h3 id="other-skills-title">Otras habilidades</h3>
-        <div class="tags">
-          <span class="tag" data-es="Excel Intermedio" data-en="Intermediate Excel">
-            <img class="tag-icon" src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Excel" />
-            <span class="tag-text">Excel Intermedio</span>
-          </span>
-
-          <span class="tag" data-es="Automatización" data-en="Automation">
-            <span class="tag-text">Automatización</span>
-          </span>
-
-          <span class="tag" data-es="Monitoreo de KPIs" data-en="KPI Monitoring">
-            <span class="tag-text">Monitoreo de KPIs</span>
-          </span>
-
-          <span class="tag" data-es="Soporte IT" data-en="IT Support">
-            <span class="tag-text">Soporte IT</span>
-          </span>
-
-          <span class="tag" data-es="Redes" data-en="Networks">
-            <span class="tag-text">Redes</span>
-          </span>
-
-          <span class="tag" data-es="Inglés B2" data-en="English B2">
-            <span class="tag-text">Inglés B2</span>
-          </span>
+      <div class="card hero-side">
+        <div class="mini-card">
+          <h3>Enfoque principal</h3>
+          <p>Soporte técnico, automatización, operación tecnológica, análisis de datos y mejora continua.</p>
         </div>
-      </div>
-
-      <div class="subcard">
-        <h3 id="systems-title">Sistemas operativos</h3>
-        <div class="tags">
-          <span class="tag" data-es="Linux" data-en="Linux">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
-            <span class="tag-text">Linux</span>
-          </span>
-
-          <span class="tag" data-es="Windows" data-en="Windows">
-            <img class="tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows" />
-            <span class="tag-text">Windows</span>
-          </span>
+        <div class="stats">
+          <div class="stat">
+            <strong>3+</strong>
+            <span>Años en entornos operativos y soporte</span>
+          </div>
+          <div class="stat">
+            <strong>B2</strong>
+            <span>Inglés funcional</span>
+          </div>
+          <div class="stat">
+            <strong>Python</strong>
+            <span>Automatización y scripts</span>
+          </div>
+          <div class="stat">
+            <strong>IT</strong>
+            <span>Redes, sistemas y usuarios</span>
+          </div>
         </div>
       </div>
     </div>
+  </header>
 
-    <h2 id="experience-title">Experiencia</h2>
-    <div class="card">
-      <div class="job">
-        <div class="job-title">Callpeople S.A.S (2023 – 2026)</div>
-        <div class="job-role" id="job1-role">Ingeniero Principal de Operaciones y Sistemas</div>
-        <ul>
-          <li id="job1-li2">Automatización de reportes y seguimiento de KPIs con herramientas tecnológicas.</li>
-          <li id="job1-li4">Monitoreo de sistemas, redes internas y plataformas operativas.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-title">Teleperformance (2022 – 2023)</div>
-        <div class="job-role" id="job2-role">Soporte de Redes y Sistemas</div>
-        <ul>
-          <li id="job2-li1">Resolución de incidencias técnicas relacionadas con redes, sistemas y conectividad.</li>
-          <li id="job2-li2">Diagnóstico de problemas en equipos, aplicaciones y servicios de red.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-title">Serviflocar (2021 – 2022)</div>
-        <div class="job-role" id="job3-role">Técnico en Telecomunicaciones</div>
-        <ul>
-          <li id="job3-li1">Instalación y configuración de equipos Huawei y Nokia.</li>
-          <li id="job3-li2">Implementación de enlaces y cumplimiento de estándares técnicos de instalación.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h2 id="projects-title">Proyectos</h2>
-    <div class="card">
-      <div class="project">
-        <div class="project-title" id="project1-title">Automatización de reportes operativos</div>
-        <div class="project-desc" id="project1-desc">
-          Desarrollo de archivos y flujos de trabajo en Excel y Python para automatizar reportes de operación,
-          seguimiento de resultados y control de indicadores clave.
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-title" id="project2-title">Optimización de monitoreo y soporte técnico</div>
-        <div class="project-desc" id="project2-desc">
-          Implementación de soluciones para monitoreo de equipos, control de redes internas y soporte a plataformas
-          utilizadas por equipos de call center.
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-title" id="project3-title">Análisis de datos para toma de decisiones</div>
-        <div class="project-desc" id="project3-desc">
-          Construcción de herramientas para analizar productividad, desempeño y métricas operativas, facilitando la
-          trazabilidad de la información y la mejora continua.
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Perfil profesional</h2>
+          <p>
+            Tengo experiencia en operaciones tecnológicas, soporte técnico, análisis de datos y automatización de reportes.
+            He trabajado en entornos de alta demanda, mejorando procesos y ayudando a mantener la continuidad operativa.
+          </p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="footer" id="footer-text">
-      Sitio profesional de Harrison Olmos
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Habilidades</h2>
+          <p>Una combinación de soporte técnico, operación, automatización y bases de desarrollo que me permite aportar rápido en equipos tecnológicos.</p>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Lenguajes y desarrollo</h3>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">Java</span>
+            <span class="chip">SQL</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Soporte y operación</h3>
+          <div class="chips">
+            <span class="chip">Soporte IT</span>
+            <span class="chip">Redes</span>
+            <span class="chip">Monitoreo de KPIs</span>
+            <span class="chip">Automatización</span>
+            <span class="chip">Excel Intermedio</span>
+            <span class="chip">Inglés B2</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Sistemas operativos</h3>
+          <div class="chips">
+            <span class="chip">Linux</span>
+            <span class="chip">Windows</span>
+          </div>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <script>
-    const translations = {
-      es: {
-        headline: "Risk & Operations Analyst | Data & IT",
-        location: "Colombia",
-        profileTitle: "Perfil",
-        profileText: "Profesional con experiencia en operaciones tecnológicas, análisis de datos y optimización de procesos dentro de entornos de call center y soporte técnico. Cuento con habilidades en automatización de reportes, análisis de indicadores operativos y gestión de herramientas tecnológicas para mejorar la eficiencia de las operaciones. Me caracterizo por mi capacidad para resolver problemas, aprender rápidamente y liderar iniciativas de mejora continua, aportando soluciones basadas en datos que contribuyen al crecimiento y la estabilidad de la organización.",
-        skillsTitle: "Habilidades",
-        programmingTitle: "Lenguajes de programación",
-        otherSkillsTitle: "Otras habilidades",
-        systemsTitle: "Sistemas operativos",
-        experienceTitle: "Experiencia",
-        job1Role: "Ingeniero Principal de Operaciones y Sistemas",
-        job1Li2: "Automatización de reportes y seguimiento de KPIs con herramientas tecnológicas.",
-        job1Li4: "Monitoreo de sistemas, redes internas y plataformas operativas.",
-        job2Role: "Soporte de Redes y Sistemas",
-        job2Li1: "Resolución de incidencias técnicas relacionadas con redes, sistemas y conectividad.",
-        job2Li2: "Diagnóstico de problemas en equipos, aplicaciones y servicios de red.",
-        job3Role: "Técnico en Telecomunicaciones",
-        job3Li1: "Instalación y configuración de equipos Huawei y Nokia.",
-        job3Li2: "Implementación de enlaces y cumplimiento de estándares técnicos de instalación.",
-        projectsTitle: "Proyectos",
-        project1Title: "Automatización de reportes operativos",
-        project1Desc: "Desarrollo de archivos y flujos de trabajo en Excel y Python para automatizar reportes de operación, seguimiento de resultados y control de indicadores clave.",
-        project2Title: "Optimización de monitoreo y soporte técnico",
-        project2Desc: "Implementación de soluciones para monitoreo de equipos, control de redes internas y soporte a plataformas utilizadas por equipos de call center.",
-        project3Title: "Análisis de datos para toma de decisiones",
-        project3Desc: "Construcción de herramientas para analizar productividad, desempeño y métricas operativas, facilitando la trazabilidad de la información y la mejora continua.",
-        footer: "Sitio profesional de Harrison Olmos"
-      },
-      en: {
-        headline: "Risk & Operations Analyst | Data & IT",
-        location: "Colombia",
-        profileTitle: "Profile",
-        profileText: "Professional with experience in technology operations, data analysis, and process optimization within call center and technical support environments. Skilled in report automation, operational KPI analysis, and the management of technological tools to improve operational efficiency. Recognized for problem-solving, fast learning, and leading continuous improvement initiatives, delivering data-driven solutions that support organizational growth and stability.",
-        skillsTitle: "Skills",
-        programmingTitle: "Programming Languages",
-        otherSkillsTitle: "Other Skills",
-        systemsTitle: "Operating Systems",
-        experienceTitle: "Experience",
-        job1Role: "Lead Operations & Systems Engineer",
-        job1Li2: "Automation of reports and KPI tracking using technology-driven tools.",
-        job1Li4: "Monitoring of systems, internal networks, and operational platforms.",
-        job2Role: "Network & Systems Support",
-        job2Li1: "Resolution of technical incidents related to networks, systems, and connectivity.",
-        job2Li2: "Diagnosis of issues involving devices, applications, and network services.",
-        job3Role: "Telecommunications Technician",
-        job3Li1: "Installation and configuration of Huawei and Nokia equipment.",
-        job3Li2: "Link deployment and compliance with technical installation standards.",
-        projectsTitle: "Projects",
-        project1Title: "Operational reporting automation",
-        project1Desc: "Development of Excel and Python workflows to automate operational reports, performance tracking, and key indicator control.",
-        project2Title: "Monitoring and technical support optimization",
-        project2Desc: "Implementation of solutions for device monitoring, internal network control, and support for platforms used by call center teams.",
-        project3Title: "Data analysis for decision-making",
-        project3Desc: "Built tools to analyze productivity, performance, and operational metrics, improving traceability and continuous improvement.",
-        footer: "Professional website of Harrison Olmos"
-      }
-    };
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Proyectos destacados</h2>
+          <p>Proyectos enfocados en automatización, monitoreo y soporte, alineados con mi experiencia real en operaciones.</p>
+        </div>
+      </div>
 
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem("lang", lang);
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>Automatización de reportes operativos</h3>
+          <p>Diseñé flujos de trabajo con Excel y Python para reducir tareas manuales, ordenar información y facilitar el seguimiento de resultados e indicadores.</p>
+          <div class="project-meta">
+            <span class="chip">Python</span>
+            <span class="chip">Excel</span>
+            <span class="chip">KPIs</span>
+          </div>
+        </article>
 
-      document.getElementById("headline").textContent = translations[lang].headline;
-      document.getElementById("location").textContent = translations[lang].location;
-      document.getElementById("profile-title").textContent = translations[lang].profileTitle;
-      document.getElementById("profile-text").textContent = translations[lang].profileText;
-      document.getElementById("skills-title").textContent = translations[lang].skillsTitle;
-      document.getElementById("programming-title").textContent = translations[lang].programmingTitle;
-      document.getElementById("other-skills-title").textContent = translations[lang].otherSkillsTitle;
-      document.getElementById("systems-title").textContent = translations[lang].systemsTitle;
-      document.getElementById("experience-title").textContent = translations[lang].experienceTitle;
+        <article class="project-card">
+          <h3>Monitoreo y soporte técnico</h3>
+          <p>Implementé mejoras para el monitoreo de equipos, control de redes internas y apoyo a plataformas utilizadas en operación de call center.</p>
+          <div class="project-meta">
+            <span class="chip">Soporte IT</span>
+            <span class="chip">Redes</span>
+            <span class="chip">Operación</span>
+          </div>
+        </article>
 
-      document.getElementById("job1-role").textContent = translations[lang].job1Role;
-      document.getElementById("job1-li2").textContent = translations[lang].job1Li2;
-      document.getElementById("job1-li4").textContent = translations[lang].job1Li4;
+        <article class="project-card">
+          <h3>Análisis de datos para toma de decisiones</h3>
+          <p>Construí herramientas para analizar productividad, desempeño y métricas operativas, ayudando a identificar oportunidades de mejora continua.</p>
+          <div class="project-meta">
+            <span class="chip">Data Analysis</span>
+            <span class="chip">Reporting</span>
+            <span class="chip">Optimización</span>
+          </div>
+        </article>
 
-      document.getElementById("job2-role").textContent = translations[lang].job2Role;
-      document.getElementById("job2-li1").textContent = translations[lang].job2Li1;
-      document.getElementById("job2-li2").textContent = translations[lang].job2Li2;
+        <article class="project-card">
+          <h3>Portafolio personal web</h3>
+          <p>Desarrollé este sitio como una vitrina profesional para centralizar experiencia, habilidades, proyectos y acceso directo a mi CV.</p>
+          <div class="project-meta">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">GitHub Pages</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      document.getElementById("job3-role").textContent = translations[lang].job3Role;
-      document.getElementById("job3-li1").textContent = translations[lang].job3Li1;
-      document.getElementById("job3-li2").textContent = translations[lang].job3Li2;
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Experiencia</h2>
+          <p>Experiencia en soporte técnico, operaciones y optimización de procesos en ambientes de alta demanda.</p>
+        </div>
+      </div>
 
-      document.getElementById("projects-title").textContent = translations[lang].projectsTitle;
-      document.getElementById("project1-title").textContent = translations[lang].project1Title;
-      document.getElementById("project1-desc").textContent = translations[lang].project1Desc;
-      document.getElementById("project2-title").textContent = translations[lang].project2Title;
-      document.getElementById("project2-desc").textContent = translations[lang].project2Desc;
-      document.getElementById("project3-title").textContent = translations[lang].project3Title;
-      document.getElementById("project3-desc").textContent = translations[lang].project3Desc;
+      <div class="experience-grid">
+        <article class="timeline-card">
+          <div class="timeline-top">
+            <div>
+              <h3>Callpeople S.A.S</h3>
+              <div class="timeline-role">Ingeniero Principal de Operaciones y Sistemas</div>
+            </div>
+            <div class="timeline-date">2023 – 2026</div>
+          </div>
+          <ul>
+            <li>Automatización de reportes y seguimiento de KPIs con herramientas tecnológicas.</li>
+            <li>Monitoreo de sistemas, redes internas y plataformas operativas.</li>
+            <li>Apoyo a la optimización de procesos en entornos de alta carga operativa.</li>
+          </ul>
+        </article>
 
-      document.getElementById("footer-text").textContent = translations[lang].footer;
+        <article class="timeline-card">
+          <div class="timeline-top">
+            <div>
+              <h3>Teleperformance</h3>
+              <div class="timeline-role">Soporte de Redes y Sistemas</div>
+            </div>
+            <div class="timeline-date">2022 – 2023</div>
+          </div>
+          <ul>
+            <li>Resolución de incidencias técnicas relacionadas con redes, sistemas y conectividad.</li>
+            <li>Diagnóstico de problemas en equipos, aplicaciones y servicios de red.</li>
+            <li>Soporte a usuarios en entornos de alto volumen.</li>
+          </ul>
+        </article>
 
-      document.querySelectorAll(".tag").forEach(tag => {
-        const textSpan = tag.querySelector(".tag-text");
-        const translated = tag.getAttribute(`data-${lang}`);
-        if (translated && textSpan) {
-          textSpan.textContent = translated;
-        }
-      });
-    }
+        <article class="timeline-card">
+          <div class="timeline-top">
+            <div>
+              <h3>Serviflocar</h3>
+              <div class="timeline-role">Técnico en Telecomunicaciones</div>
+            </div>
+            <div class="timeline-date">2021 – 2022</div>
+          </div>
+          <ul>
+            <li>Instalación y configuración de equipos Huawei y Nokia.</li>
+            <li>Implementación de enlaces y cumplimiento de estándares técnicos de instalación.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedLang = localStorage.getItem("lang") || "es";
-      setLanguage(savedLang);
-    });
-  </script>
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Contacto</h2>
+          <p>Disponible para oportunidades relacionadas con soporte técnico, automatización, operaciones tecnológicas y desarrollo junior.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Hablemos</h3>
+          <div class="contact-list">
+            <div><strong>Email:</strong> <a href="mailto:mateoolmos12star@gmail.com">mateoolmos12star@gmail.com</a></div>
+            <div><strong>Teléfono:</strong> <a href="tel:+573214618872">+57 321 461 8872</a></div>
+            <div><strong>Ubicación:</strong> Colombia</div>
+            <div><strong>LinkedIn:</strong> <a href="#">https://www.linkedin.com/in/harrison-olmos-b640ab1a2/</a></div>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <h3>Accesos rápidos</h3>
+          <div class="hero-actions" style="margin-top:0;">
+            <a class="btn btn-primary" href="Harrison_Olmos_CV_OnePage.pdf" target="_blank" rel="noopener noreferrer">Descargar CV</a>
+            <a class="btn btn-secondary" href="https://wa.me/573214618872?text=Hola%20Harrison,%20vi%20tu%20portafolio%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Harrison Olmos · Portfolio profesional
+  </footer>
 </body>
 </html>
