@@ -23,7 +23,7 @@ const i18n = {
         // Other
         heroTitle: 'Hola, soy <span class="accent">Harrison</span>.<br>Construyo soluciones prácticas para operaciones y tecnología.',
         heroSubtitle: 'Profesional con experiencia en soporte técnico, automatización de procesos, análisis de datos y mejora operativa. Me enfoco en resolver problemas reales, optimizar flujos de trabajo y apoyar equipos de alto rendimiento.',
-        btnProjects: 'Ver proyectos', btnCv: 'Descargar CV', btnWa: 'WhatsApp',
+        btnProjects: 'Ver proyectos', btnGithub: 'GitHub', btnCv: 'Descargar CV', btnWa: 'WhatsApp',
         aboutTitle: 'Perfil profesional', aboutText: 'Tengo experiencia en operaciones tecnológicas, soporte técnico, análisis de datos y automatización de reportes. He trabajado en entornos de alta demanda, mejorando procesos y ayudando a mantener la continuidad operativa.',
         skillsTitle: 'Habilidades', skillsText: 'Una combinación de soporte técnico, operación, automatización y bases de desarrollo que me permite aportar rápido en equipos tecnológicos.',
         skillsCard1: 'Lenguajes y desarrollo', skillsCard2: 'Soporte y operación', skillsCard3: 'Sistemas operativos',
@@ -38,7 +38,7 @@ const i18n = {
         er2: 'Soporte de Redes y Sistemas', e21: 'Resolución de incidencias técnicas relacionadas con redes, sistemas y conectividad.', e22: 'Diagnóstico de problemas en equipos, aplicaciones y servicios de red.', e23: 'Soporte a usuarios en entornos de alto volumen.',
         er3: 'Técnico en Telecomunicaciones', e31: 'Instalación y configuración de equipos Huawei y Nokia.', e32: 'Implementación de enlaces y cumplimiento de estándares técnicos de instalación.',
         contactTitle: 'Contacto', contactText: 'Disponible para oportunidades relacionadas con soporte técnico, automatización, operaciones tecnológicas y desarrollo junior.',
-        cct1: 'Hablemos', cct2: 'Accesos rápidos', locationLabel: 'Ubicación:', btnCv2: 'Descargar CV', btnWa2: 'Escribir por WhatsApp',
+        cct1: 'Hablemos', cct2: 'Accesos rápidos', locationLabel: 'Ubicación:', btnCv2: 'Descargar CV', btnGithub2: 'Ver GitHub', btnWa2: 'Escribir por WhatsApp',
         footer: '© 2026 Harrison Olmos · Portfolio profesional'
 
         // about: {}
@@ -72,7 +72,7 @@ const i18n = {
         // other
         heroTitle: 'Hi, I am <span class="accent">Harrison</span>.<br>I build practical solutions for operations and technology.',
         heroSubtitle: 'Professional with experience in technical support, process automation, data analysis, and operational improvement. I focus on solving real problems, optimizing workflows, and supporting high-performance teams.',
-        btnProjects: 'View projects', btnCv: 'Download Resume', btnWa: 'WhatsApp',
+        btnProjects: 'View projects', btnGithub: 'GitHub', btnCv: 'Download Resume', btnWa: 'WhatsApp',
         aboutTitle: 'Professional profile', aboutText: 'I have experience in technology operations, technical support, data analysis, and report automation. I have worked in high-demand environments, improving processes and helping maintain operational continuity.',
         skillsTitle: 'Skills', skillsText: 'A combination of technical support, operations, automation, and development foundations that allows me to contribute quickly in technology teams.',
         skillsCard1: 'Languages and development', skillsCard2: 'Support and operations', skillsCard3: 'Operating systems',
@@ -87,7 +87,7 @@ const i18n = {
         er2: 'Network and Systems Support', e21: 'Resolution of technical incidents related to networks, systems, and connectivity.', e22: 'Diagnosis of issues in devices, applications, and network services.', e23: 'Support for users in high-volume environments.',
         er3: 'Telecommunications Technician', e31: 'Installation and configuration of Huawei and Nokia equipment.', e32: 'Link implementation and compliance with technical installation standards.',
         contactTitle: 'Contact', contactText: 'Available for opportunities related to technical support, automation, technology operations, and junior development.',
-        cct1: 'Let’s talk', cct2: 'Quick access', locationLabel: 'Location:', btnCv2: 'Download Resume', btnWa2: 'Message on WhatsApp',
+        cct1: 'Let’s talk', cct2: 'Quick access', locationLabel: 'Location:', btnCv2: 'Download Resume', btnGithub2: 'View GitHub', btnWa2: 'Message on WhatsApp',
         footer: '© 2026 Harrison Olmos · Professional portfolio'
     }
 };
@@ -124,6 +124,7 @@ function setLanguage(lang) {
     document.getElementById('hero-title').innerHTML = t.heroTitle;
     document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
     document.getElementById('btn-projects').textContent = t.btnProjects;
+    document.getElementById('btn-github').textContent = t.btnGithub;
     document.getElementById('btn-cv').textContent = t.btnCv;
     document.getElementById('btn-wa').textContent = t.btnWa;
     document.getElementById('about-title').textContent = t.aboutTitle;
@@ -168,6 +169,7 @@ function setLanguage(lang) {
     document.getElementById('contact-card-title-2').textContent = t.cct2;
     document.getElementById('contact-location-label').textContent = t.locationLabel;
     document.getElementById('btn-cv-2').textContent = t.btnCv2;
+    document.getElementById('btn-github-2').textContent = t.btnGithub2;
     document.getElementById('btn-wa-2').textContent = t.btnWa2;
     document.getElementById('footer-text').textContent = t.footer;
 }

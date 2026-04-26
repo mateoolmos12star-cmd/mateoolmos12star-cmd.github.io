@@ -12,7 +12,7 @@ Portafolio web personal para presentar mi perfil profesional, experiencia, habil
 - Seccion de habilidades tecnicas y operativas.
 - Proyectos destacados, incluyendo automatizacion de reportes y generacion de archivos D93 TXT.
 - Experiencia profesional.
-- Accesos directos a CV, LinkedIn, correo y WhatsApp.
+- Accesos directos a CV, GitHub, LinkedIn, correo y WhatsApp.
 
 ## Tecnologias
 
